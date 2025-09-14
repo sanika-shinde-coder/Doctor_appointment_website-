@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Your Appointments</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container card">
+      <h1>List of Appointments</h1>
+      <ul id="patientAppointmentList">
+        <li>Loading appointments...</li>
+      </ul>
+      <button onclick="window.location.href='index.html'">⬅ Back</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Refresh appointments for patient
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof displayAppointmentsForPatient === "function") {
+          displayAppointmentsForPatient();
+        } else {
+          document.getElementById("patientAppointmentList").innerHTML =
+            "<li>Error: displayAppointmentsForPatient() not found.</li>";
+        }
+      });
+    </script>
+  </body>
+</html>

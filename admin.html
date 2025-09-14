@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="displayDoctors()">
+    <div class="container card">
+      <h1>Admin Dashboard</h1>
+
+      <h2>Add / Edit Doctor</h2>
+      <label>
+        Doctor Name:
+        <input style="height: 30px" id="docName" placeholder="Doctor Name" />
+      </label>
+      <br />
+      <label>
+        Doctor Type:
+        <input style="height: 30px" id="docType" placeholder="Type of Doctor" />
+      </label>
+      <br />
+
+      <label>
+        Choose Dates:
+        <input style="width: 200px" id="availableDates" type="date" />
+      </label>
+      <button onclick="addDate()">Add Date</button>
+
+      <div id="dateList" class="chip-container"></div>
+      <br />
+
+      <h3>Select Available Time Slots:</h3>
+      <div id="slotCheckboxes" class="checkbox-container">
+        <label><input type="checkbox" value="08.00am" />08.00am</label>
+        <label><input type="checkbox" value="09.00am" />09.00am</label>
+        <label><input type="checkbox" value="10.00am" />10.00am</label>
+        <label><input type="checkbox" value="11.00am" />11.00am</label>
+        <label><input type="checkbox" value="12.00pm" />12.00pm</label>
+        <label><input type="checkbox" value="03.00pm" />03.00pm</label>
+      </div>
+
+      <br />
+      <button onclick="addOrUpdateDoctor()">💾 Save Doctor</button>
+
+      <br /><br />
+      <h2>All Doctors</h2>
+      <ul id="doctorList"></ul>
+
+      <h2>Scheduled Appointments</h2>
+      <ul id="appointmentList"></ul>
+
+      <button onclick="window.location.href='index.html'">⬅ Back</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

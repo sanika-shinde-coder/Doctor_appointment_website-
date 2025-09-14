@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .doctor-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      .doctor-name {
+        font-weight: bold;
+      }
+      .view-btn {
+        padding: 6px 12px;
+        background-color: #4facfe;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: white;
+      }
+      .view-btn:hover {
+        background-color: #357ae8;
+      }
+    </style>
+  </head>
+  <body onload="displayDoctorList()">
+    <div class="container card">
+      <h1>Doctor Dashboard</h1>
+      <div id="doctorListContainer"></div>
+      <div id="doctorAppointments" style="margin-top: 20px"></div>
+      <button onclick="window.location.href='index.html'">⬅ Back</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

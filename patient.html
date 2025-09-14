@@ -1,0 +1,78 @@
+<body onload="populateDoctors();loadPatientName()">
+  <link rel="stylesheet" href="style.css" />
+
+  <div class="container card">
+    <h1>Patient Appointment Booking</h1>
+
+    <!-- Patient Name Entry -->
+    <div class="form-group">
+      <label id="pname" for="patientNameInput">Enter Your Name:</label>
+      <input type="text" id="patientNameInput" placeholder="Your name" /><br />
+      <button class="btn" onclick="savePatientName()">Save Name</button>
+    </div>
+
+    <h2 id="greeting" style="display: none">
+      Welcome, <span id="patientName">Patient</span>
+    </h2>
+
+    <h3>Schedule an Appointment</h3>
+
+    <div class="form-group">
+      <label for="typeSelect">Select Doctor Type:</label>
+      <select id="typeSelect" onchange="populateDates()">
+        <option value="">Select Type</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="doctorSelect">Select Doctor:</label>
+      <select id="doctorSelect" onchange="populateSlots()">
+        <option value="">Select Doctor</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dateSelect">Select Date:</label>
+      <select id="dateSelect">
+        <option value="">Select Date</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="slotSelect">Select Slot:</label>
+      <select id="slotSelect">
+        <option value="">Select Slot</option>
+      </select>
+    </div>
+
+    <button class="btn" onclick="scheduleAppointment()">
+      Schedule Appointment
+    </button>
+    <button class="btn" onclick="window.location.href='index.html'">
+      ⬅ Back to Login
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function savePatientName() {
+      const name = document.getElementById("patientNameInput").value.trim();
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+      localStorage.setItem("currentPatient", name);
+      document.getElementById("patientName").innerText = name;
+      document.getElementById("greeting").style.display = "block";
+    }
+
+    function loadPatientName() {
+      const savedName = localStorage.getItem("currentPatient");
+      if (savedName) {
+        document.getElementById("patientNameInput").value = savedName;
+        document.getElementById("patientName").innerText = savedName;
+        document.getElementById("greeting").style.display = "block";
+      }
+    }
+  </script>
+</body>
